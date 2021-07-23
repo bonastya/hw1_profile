@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="112dp"
+    android:layout_height="125dp"
     android:background="@drawable/krugliye_ugli"
     android:elevation ="2dp"
     android:layout_marginTop="8dp"
@@ -18,8 +18,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_regular"
+
         android:text="Анастасия Богодухова "
+        android:textColor="#212121"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -31,14 +33,34 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/roboto_light"
         android:text="3 курс"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
-    <ImageView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/imageView"
+        android:layout_width="109dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@drawable/img"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
+            android:contentDescription="desc"
+            android:src="@drawable/img"
+            tools:srcCompat="@drawable/img"/>
+    </com.google.android.material.card.MaterialCardView>
+
+<!--    <ImageView
         android:id="@+id/imageView"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -47,17 +69,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/img"
-        tools:srcCompat="@drawable/img" />
+        tools:srcCompat="@drawable/img"/>-->
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="58dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/roboto_light"
         android:text="Github"
+        android:textColor="#6200ee"
+        android:textSize="15dp"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:strokeColor="#d0b3fa"
+        app:strokeWidth="1px" />
+
+<!--    <com.google.android.material.button.MaterialButton
+        android:id="@+id/github"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:paddingStart="60dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="60dp"
+        android:paddingBottom="12dp"
+        android:text="GitHub"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="15dp"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/design_default_color_primary"
+        app:strokeWidth="1dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
