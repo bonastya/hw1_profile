@@ -5,8 +5,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.IllegalArgumentException
+class SkillsAdapter(var skills:List<Skill>): RecyclerView.Adapter<SkillViewHolder>() {
 
-class MainAdapter(var items:List<Item>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_skill, parent, false)
+        return SkillViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: SkillViewHolder, position: Int) {
+        val Skill = Item.SkillsItem(skills)
+        holder.bind(skills[position])
+    }
+
+    override fun getItemCount()= skills.size
+
+
+/*    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NavikHolder=
+        SkillsItemHolder(ItemMySkillBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+    override fun onBindViewHolder(holder: NavikHolder, position: Int) {
+        holder.onBind(skills[position])
+    }
+    override fun getItemCount(): Int =
+        skills.size*/
+}
+/*
+
+
+class SkillsAdapter(var items:List<Item>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when(viewType){
             VIEW_TYPE_NAMECARD->{
@@ -76,4 +102,4 @@ class MainAdapter(var items:List<Item>): RecyclerView.Adapter<RecyclerView.ViewH
     }
 
 
-}
+}*/

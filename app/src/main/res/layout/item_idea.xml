@@ -9,6 +9,7 @@
     android:layout_marginTop="8dp"
     android:layout_marginRight="16dp"
     android:layout_marginLeft="16dp"
+    android:layout_marginBottom="8dp"
     >
 
     <TextView
@@ -30,10 +31,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/roboto_light"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="@font/roboto_regular"
+        android:lineHeight="20dp"
         android:text="текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст "
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

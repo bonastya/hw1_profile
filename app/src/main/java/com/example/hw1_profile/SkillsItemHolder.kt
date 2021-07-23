@@ -1,19 +1,32 @@
 package com.example.hw1_profile
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
+
 
 
 class SkillsItemHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun bind (idea: Item.SkillsItem){
         with(itemView){
             idea.run {
-                val nameTextView: TextView = findViewById(R.id.nameTextView) as TextView
-                val timeTextView: TextView = findViewById(R.id.timeTextView) as TextView
+                val recyclerView: RecyclerView = findViewById(R.id.skillsRecyclerView) as RecyclerView
 
-                /*nameTextView.text = header
-                timeTextView.text = text*/
+                val SkillsAdapter= SkillsAdapter(idea.skills)
+
+                with(recyclerView){
+                    this.layoutManager= LinearLayoutManager(context)
+                    this.adapter = SkillsAdapter
+                    this.setHasFixedSize(true)
+                }
 
             }
         }
