@@ -1,13 +1,19 @@
 package com.example.hw1_profile
 
 import android.os.Bundle
+import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+
 class MainActivity : AppCompatActivity() {
 
     var items:ArrayList<Item> = ArrayList<Item>()
+
+    var filterlist:ArrayList<String> = arrayListOf("1 год", "2 года","3 года")
+    var filter:Filter=Filter(filterlist)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +24,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
+
+
+
+
+        filterlist.clear()
+        println("aaa "+filterlist)
+        println("aaa "+intent.extras)
+
+        val extras = intent.extras
+        if (extras != null){
+
+            if(extras.getSerializable("checkedFilters") != null){
+                filter = extras.getSerializable("checkedFilters") as  Filter
+                println("aaa "+filter.filterskills)
+            }else{
+
+
+            }
+
+        }
+
+        else{
+
+
+        }
+
+
+
+
 
         fillList()
 
@@ -32,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    var skillList = mutableListOf<Skill>()
+/*    var skillList = mutableListOf<Skill>()
 
     private fun initRecyclerView(){
         val skilladaptor= skillAdaptor()
@@ -57,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         skilladaptor.resetList()
 
 
-    }
+    }*/
 
     private fun fillList(){
         items.add(0,Item.NameItem("Анастасия Богодухова", "3 курс"))
@@ -66,20 +101,56 @@ class MainActivity : AppCompatActivity() {
                 "Исходя из этой информации алгоритмы приложения находят наиболее подходящих людей для обмена навыками.\n" +
                 "Предлагается расширенный поиск, просматривание анкет других пользователей и общение в чате с теми, чьи анкеты понравились :)"
         items.add(1,Item.IdeaItem("Идея проекта", ideatext))
-        items.add(2,Item.SkillsHeaderItem("Навыки"))
+        items.add(2,Item.SkillsHeaderItem("Навыки", filter.filterskills.size == 0 || filter.filterskills.size == 3))
 
         var skillList = mutableListOf<Skill>()
+        var filterSkillList = mutableListOf<Skill>()
         skillList.add(Skill("C","1 год"))
         skillList.add(Skill("C++","3 года"))
         skillList.add(Skill("C#","2 года"))
         skillList.add(Skill("JS","2 года"))
-        skillList.add(Skill("SQL","2,5 года"))
+        skillList.add(Skill("SQL","3 года"))
         skillList.add(Skill("PHP","1 год"))
         skillList.add(Skill("Kotlin","1 год"))
 
-        items.add(3,Item.SkillsItem(skillList))
+        filterSkillList.clear()
+
+        println("aaa b1 "+filterSkillList)
+        println("aaa b2 "+filter.filterskills)
+
+
+        if(filter.filterskills.size == 0 || filter.filterskills.size == 3){
+            items.add(3,Item.SkillsItem(skillList))
+
+        }
+        else{
+            for(i in skillList){
+                for (j in filter.filterskills){
+                    if ( i.time.contains(j, ignoreCase = true)){
+                        filterSkillList.add(i)
+                        continue
+                    }
+
+                }
+
+            }
+            println("aaa b3 "+filterSkillList)
+
+            items.add(3,Item.SkillsItem(filterSkillList))
+        }
+
+
+
 
     }
+
+/*    fun onClickFilter(view: View) {
+        val intent = Intent(this@MainActivity, FilterActivity::class.java)
+        startActivity(intent)
+    }*/
+
+
+
 
 
 

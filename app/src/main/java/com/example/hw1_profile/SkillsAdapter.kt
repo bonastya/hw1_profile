@@ -8,6 +8,27 @@ import java.lang.IllegalArgumentException
 class SkillsAdapter(var skills:List<Skill>): RecyclerView.Adapter<SkillViewHolder>() {
 
 
+    var filterSkillList = mutableListOf<Skill>()
+
+    fun setList(personlist: MutableList<Skill>){
+        filterSkillList.clear()
+        for (i in personlist){
+            filterSkillList.add(i)}
+        notifyDataSetChanged()
+    }
+
+    fun resetList(){
+        filterSkillList.clear()
+        for (i in skills){
+            filterSkillList.add(i)}
+        notifyDataSetChanged()
+    }
+
+/*    fun addPerson(person:Skill){
+        skills.add(person)
+        notifyDataSetChanged()
+    }*/
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
         val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_skill, parent, false)
         return SkillViewHolder(itemView)

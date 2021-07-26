@@ -3,33 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="38dp"
+    android:background="@drawable/krugliye_ugli"
     android:elevation ="2dp"
-    android:layout_marginTop="6dp"
+    android:layout_marginTop="0dp"
     android:layout_marginRight="16dp"
     android:layout_marginLeft="16dp"
     android:layout_marginBottom="8dp"
     >
 
-    <TextView
-        android:id="@+id/headerTextView"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Навыки"
-        android:textColor="#212121"
-        android:textSize="18sp"
+        android:text="1 год"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewFilter"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_filter" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
